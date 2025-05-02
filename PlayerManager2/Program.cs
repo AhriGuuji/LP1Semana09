@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace PlayerManager1 // >>> Change to PlayerManager2 for exercise 4 <<< //
+namespace PlayerManager2 // >>> Change to PlayerManager2 for exercise 4 <<< //
 {
     /// <summary>
     /// The player listing program.
@@ -141,7 +141,12 @@ namespace PlayerManager1 // >>> Change to PlayerManager2 for exercise 4 <<< //
         /// </returns>
         private IEnumerable<Player> GetPlayersWithScoreGreaterThan(int minScore)
         {
-            return playerList.Where(player => player.Score > minScore);
+            foreach(Player p in playerList.Where(player => player.Score > minScore))
+            {
+                yield return p;
+            }
+
+            //A anterior com Where era mais compacta
         }
     }
 }
